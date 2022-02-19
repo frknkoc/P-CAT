@@ -1,0 +1,61 @@
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+// CONNECT DB
+
+mongoose.connect('mongodb://localhost/pcat-test-db', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+// CREATE SCHEMA
+
+const PhotoSchema = new Schema({
+    title: String,
+    description: String
+});
+
+const Photo = mongoose.model('Photo', PhotoSchema);
+
+// CREATE A PHOTO
+/*
+Photo.create({
+    title: "Title 2",
+    description: "Description 2"
+})
+*/
+
+// READ PHOTO
+/*
+Photo.find({}, (err, data) => {
+    console.log(data);
+})
+*/
+
+// UPDATE PHOTO
+/*
+const id = "620f834d6a8639eef9d17028";
+
+Photo.findByIdAndUpdate(
+    id, {
+        title: "TİTLE 22 UPDATED",
+        description: "Photo Description 22 updated"
+    },
+    {
+        new: true
+    },
+    (err, data) => {
+        console.log(data)
+    }
+)
+*/
+
+// DELETE PHOTO
+/*
+const id = "620f81b99bf2212c2111bacc";
+
+Photo.findByIdAndDelete(id, (err, data) => {
+    console.log('Photo is removed');
+});
+*/
